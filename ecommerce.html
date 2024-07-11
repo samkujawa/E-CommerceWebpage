@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand ml-3" href="index.html">
+        <img src="images/logo.png" alt="Sam Kujawa's ecommerce store" style="height: 123px;">
+    </a>
+        <button id="toggle_button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="ecommerce.html">Ecommerce</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders.html">My Orders</a>
+                </li>
+            </ul>
+        </div>
+        <div class="cart-icon">
+            <a href="#" id="cartIcon" class="nav-link">
+                <i class="fa fa-shopping-cart"></i>
+                <span id="cartCount">0</span> Items
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <!-- Filters Section -->
+        <div class="row mb-3">
+    <div class="col-12">
+        <div class="filter-options">
+            <div class="form-inline">
+                <input type="text" id="productSearch" class="form-control mr-2" placeholder="Search for products">
+                <button id="searchButton" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="filter-options">
+            <div class="form-inline">
+                <select id="subcategoryFilter" class="form-control mr-2">
+                    <option value="%">All Categories</option>
+                    <option value="Bottomwear">Bottomwear</option>
+                    <option value="Clothing Accessories">Clothing Accessories</option>
+                    <option value="Winter Wear">Winter Wear</option>
+                    <option value="Topwear">Topwear</option>
+                    <option value="Innerwear and Swimwear">Innerwear and Swimwear</option>
+                </select>
+                <input type="number" id="minPrice" class="form-control mr-2" placeholder="Min Price">
+                <input type="number" id="maxPrice" class="form-control mr-2" placeholder="Max Price">
+                <select id="sortOrder" class="form-control mr-2">
+                    <option value="">Sort by</option>
+                    <option value="lowPrice">Low Price</option>
+                    <option value="highPrice">High Price</option>
+                    <option value="subCategory">Subcategory</option>
+                </select>
+                <button id="applyFilters" class="btn btn-primary">Apply Filters and Sort</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Products Section -->
+        <div class="row" id="productsContainer">
+            <!-- Products will be loaded here by script.js -->
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="cartModalBody">
+                    <!-- Cart items will be added here -->
+
+                    <!-- Sale Information -->
+                    <div id="saleInformation">
+                        <h5 class="mb-3">Sale Information</h5>
+                        <div class="form-group">
+                            <label for="amountTendered">Amount Tendered:</label>
+                            <input type="number" id="amountTendered" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method:</label>
+                            <select id="paymentMethod" class="form-control">
+                                <option value="cash">Cash</option>
+                                <option value="charge">Charge</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="change">Change:</label>
+                            <input type="number" id="change" class="form-control" readonly>
+                        </div>
+                        <!-- Finalize Sale Button -->
+                        <button id="finalizeSaleBtn" class="btn btn-success">Finalize Sale</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap and jQuery Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
